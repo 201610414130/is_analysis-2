@@ -1,3 +1,5 @@
+|学号          |班级     |姓名    |照片    
+|201510414325  |软工三班  |张文    |![myself](https://github.com/Anntly/is_analysis/myself.jpg "myself")
 # PlantUml作业
 flow1代码
 ===
