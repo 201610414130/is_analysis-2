@@ -15,7 +15,7 @@
 
 ## 2.系统总体结构
 ![系统总体结构](系统总体结构.png)
-界面设计详见：https://github.com/Anntly/is_analysis/tree/master/test6/demo/login.html
+界面设计详见：https://anntly.github.io/is_analysis/test6/demo/login.html
 
 ## 3. 用例图设计 [源码](用例图设计.puml)
 ![](用例图设计.png '用例图')
