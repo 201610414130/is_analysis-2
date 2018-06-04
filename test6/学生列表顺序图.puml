@@ -1,0 +1,24 @@
+@startuml
+title:基于Github的实验管理系统--学生列表顺序图
+actor user
+participant users
+participant students
+participant course
+participant tests
+participant grades
+
+user->users :判断用户角色
+alt 如果用户是老师
+users->students :获取学生信息
+students->course :获取课程信息
+course->tests :获取实验信息
+tests->grades :获取成绩信息
+grades->users :每个学生的信息,以及每个实验的成绩
+else 如果用户是学生
+users->students :获取学生信息
+students->course :获取课程信息
+course->tests :获取实验信息
+tests->grades :获取成绩信息
+grades->users :每个学生的信息,以及每个实验的成绩等级
+end
+@enduml

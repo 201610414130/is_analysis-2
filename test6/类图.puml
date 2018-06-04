@@ -1,0 +1,128 @@
+@startuml
+class users{
+  String user_id (用户ID)
+  String user_name (用户名)
+  String github_username(github账号名)
+  String password (密码)
+  int user_status (用户状态 0:封禁1:正常)
+  date create_time(创建时间)
+  date update_time(更新时间)
+  date login_time(上一次登录时间)
+}
+
+class student{
+  String student_id(学号)
+  String student_name(学生姓名)
+  Integer sex(性别 0:男1:女)
+  String native(籍贯)
+  String nation(民族)
+  String class_id(班级号)
+  float grade_sum(成绩汇总)
+  int web_sum(网站正确与否汇总)
+}
+
+class teachers{
+  String teacher_id(教师工号)
+  String dept_id(部门id)
+}
+
+class department{
+  String dept_id(部门编号)
+  String dept_name(部门名称)
+}
+class teacher_course{
+  String teacher_id(学号)
+  String courde_id(课程号)
+}
+
+class course{
+  String course_id(课程号)
+  String course_name(课程名称)
+  float course_score(学分)
+}
+
+class student_course{
+  String student_id(学号)
+  String courde_id(课程号)
+}
+
+class Class{
+  String class_id(班级号)
+  String instituteNo(学院编号)
+  String instituteName(学院名称)
+  String class_grade(年级)
+  String student_num(学生数)
+}
+
+class tests{
+  String test_id(实验编号)
+  String test_title(实验名称)
+  String test_content(实验要求)
+}
+
+class role{
+  String role_id(角色ID)
+  String role_name(角色名称)
+}
+
+class grades{
+  String student_id(学号)
+  String test_id(实验编号)
+  float grade(成绩)
+  String memo(实验评价)
+  Integer web_status(网站状态 0:正常访问 1:地址错误)
+  date create_time(批改时间)
+  date update_time(修改时间)
+}
+class user_role{
+  String user_id(用户ID)
+  String role_id(角色ID)
+}
+
+class institute{
+  String instituteNo(学院编号)
+  String instituteName(学院名称)
+  String instituteAddress(办公地址)
+  String tele(办公电话)
+}
+
+class terms{
+  Integer term_id(学期编号)
+  String term_name(学期名称)
+}
+
+class terms_course{
+  Integer term_id(学期编号)
+  String course_id(课程号)
+}
+
+class permission{
+  String permission_id(权限ID)
+  String permission_name(权限名称)
+}
+
+class role_permission{
+  String role_id(角色ID)
+  String permission(权限ID)
+}
+
+student --|> users
+teachers --|> users
+role "n" -- "1" user_role
+users "n" -- "1" user_role
+
+teachers "1" -- "n" teacher_course
+teacher_course "n" -- "1" course
+student "1" -- "n" student_course
+student_course "n" -- "1" course
+student "n" -- "1" Class
+teachers "1" -- "n" Class
+student "1"--"n" grades
+tests "1"--"n" grades
+teachers "n" -- "1" department
+institute "1"--"n" Class
+terms "1"--"n"terms_course
+terms_course "n"--"1" course
+role "1"--"n" role_permission
+permission "1"--"n" role_permission
+@enduml

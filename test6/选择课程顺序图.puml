@@ -1,0 +1,20 @@
+@startuml
+title:基于Github的实验管理系统--选择课程顺序图
+actor user
+participant users
+participant terms
+participant course
+participant tests
+user->users :判断用户角色
+alt 如果用户是老师
+users->terms :获取学期信息
+terms->course :获取课程信息
+course->tests :获取实验信息
+course->users :选取课程
+else 如果用户是学生
+users->terms :获取学期信息
+terms->course :获取课程信息
+course->tests :获取实验信息
+course->users :选取课程
+end
+@enduml

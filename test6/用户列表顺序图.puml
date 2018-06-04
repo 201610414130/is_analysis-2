@@ -1,0 +1,7 @@
+@startuml
+title:基于Github的实验管理系统--学生列表顺序图
+actor user
+participant users
+user->users:判断用户身份
+users->user:返回用户信息
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+title:基于Github的实验管理系统--查看成绩顺序图
+actor students
+participant course
+participant grades
+participant tests
+
+
+students->course:获取实验结果
+course->grades
+grades->tests
+grades->students:返回每个实验的信息，成绩和评语
+@enduml
