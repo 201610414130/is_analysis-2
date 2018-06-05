@@ -1,0 +1,12 @@
+@startuml
+title:基于Github的实验管理系统--发布实验顺序图
+actor teacher
+participant course
+participant tests
+participant scorepoint
+
+teacher->course:获取课程
+course->tests:获取实验列表
+tests->scorepoint:获取得分项
+scorepoint->teacher:添加得分项
+@enduml

@@ -106,13 +106,23 @@ class role_permission{
   String permission(权限ID)
 }
 
+class score_point{
+  int p_id(得分点编号)
+  String p_content(得分点内容)
+}
+
+class tests_score_point{
+    String test_id(实验编号)
+    int p_id(得分点编号)
+}
+
 student --|> users
 teachers --|> users
-role "n" -- "1" user_role
+role "n" -UP- "1" user_role
 users "n" -- "1" user_role
 
 teachers "1" -- "n" teacher_course
-teacher_course "n" -- "1" course
+teacher_course "n" -UP- "1" course
 student "1" -- "n" student_course
 student_course "n" -- "1" course
 student "n" -- "1" Class
@@ -122,7 +132,9 @@ tests "1"--"n" grades
 teachers "n" -- "1" department
 institute "1"--"n" Class
 terms "1"--"n"terms_course
-terms_course "n"--"1" course
+terms_course "n"-UP-"1" course
 role "1"--"n" role_permission
 permission "1"--"n" role_permission
+score_point "n"--"1" tests_score_point
+tests "n"--"1" tests_score_point 
 @enduml
